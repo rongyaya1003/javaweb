@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/javawebdemo</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping resource="com/javaweb/model/WebArticleEntity.hbm.xml"/>
+        <mapping class="com.javaweb.model.WebArticleEntity"/>
+        <mapping resource="com/javaweb/model/WebUserEntity.hbm.xml"/>
+        <mapping class="com.javaweb.model.WebUserEntity"/>
+        <mapping resource="com/javaweb/model/BlogEntity.hbm.xml"/>
+        <mapping class="com.javaweb.model.BlogEntity"/>
+        <mapping resource="com/javaweb/model/UserEntity.hbm.xml"/>
+        <mapping class="com.javaweb.model.UserEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

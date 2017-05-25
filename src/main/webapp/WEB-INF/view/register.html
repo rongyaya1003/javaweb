@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <script src="/static/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="login">
+
+    <h2><span class="fontawesome-lock"></span>Register</h2>
+
+    <form action="/registerSave" method="post" commandName="register">
+        <#if nickNameError??>
+            ${nickNameError}
+        </#if>
+        <fieldset>
+            <p><label for="nickname">Username</label></p>
+            <p><input type="text" name="nickname" id="nickname" value=""></p>
+            <#if nickNameExist??>
+            ${nickNameExist}
+            </#if>
+
+            <p><label for="password">Password</label></p>
+            <p><input type="password" name="password" id="password" value=""></p>
+
+            <p><input class="register_submit" type="submit" value="Register"></p>
+
+        </fieldset>
+
+    </form>
+
+</div> <!-- end login -->
+
+</body>
+</html>

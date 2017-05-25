@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <script src="/static/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="login">
+
+    <h2><span class="fontawesome-lock"></span>Sign In</h2>
+
+    <form action="/loginP" method="post" commandName="user">
+        <#if loginError??>
+            <p>${loginError}</p>
+        </#if>
+
+        <fieldset>
+            <p><label for="nickname">Username</label></p>
+            <p><input type="text" name="nickname" id="nickname" value=""></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
+
+            <p><label for="password">Password</label></p>
+            <p><input type="password" name="password" id="password" value=""></p> <!-- JS because of IE support; better: placeholder="password" -->
+
+            <p><a href="/register">Register</a> <input class="loginform_submit" type="submit" value="Sign In"></p>
+
+        </fieldset>
+
+
+    </form>
+
+</div> <!-- end login -->
+
+</body>
+</html>
+<script>
+    $(function(){
+
+        $(".loginform_submit").click(function(){
+            if(checkInput()) {
+                $("form").action("/loginP");
+            }else{
+                return false;
+            }
+
+        });
+
+        function checkInput(){
+            //判断用户名
+            if($("input[name=nickname]").val() == null || $("input[name=nickname]").val() == ""){
+                alert("用户名不能为空");
+                $("input[name=nickname]").focus();
+                return false;
+            }
+            //判断密码
+            if($("input[name=password]").val() == null || $("input[name=password]").val() == ""){
+                alert("密码不能为空");
+                $("input[name=password]").focus();
+                return false;
+            }
+            return true;
+        }
+    });
+</script>
